@@ -12,29 +12,36 @@ public class Warp : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         //Screen_Fader sf = GameObject.FindGameObjectWithTag("Fader").GetComponent<Screen_Fader>();
-
         //yield return StartCoroutine (sf.FadeToBlack());
+        //yield return StartCoroutine(sf.FadeToClear());
 
 
         Vector3 offset = new Vector3(0.0f, 0.0f, 0.0f);
 
-        if(other.gameObject.transform.position.x < warpTarget.position.x 
-            || other.gameObject.transform.position.x > warpTarget.position.x)
+        if(this.gameObject.tag == "North")
+        {
+            offset = new Vector3(other.gameObject.transform.position.x - warpTarget.position.x, 0.0f, 0.0f);
+
+            Debug.Log("North");
+        }
+
+        else if (this.gameObject.tag == "South")
+        {
+            offset = new Vector3(other.gameObject.transform.position.x - warpTarget.position.x, 0.0f, 0.0f);
+        }
+
+        else if (this.gameObject.tag == "East")
         {
             offset = new Vector3(0.0f, other.gameObject.transform.position.y - warpTarget.position.y, 0.0f);
         }
 
-        if (other.gameObject.transform.position.y < warpTarget.position.y
-            || other.gameObject.transform.position.y > warpTarget.position.y)
+        else if (this.gameObject.tag == "West")
         {
-            offset = new Vector3(other.gameObject.transform.position.x - warpTarget.position.x, 0.0f, 0.0f);
+            offset = new Vector3(0.0f, other.gameObject.transform.position.y - warpTarget.position.y, 0.0f);
         }
 
         other.gameObject.transform.position = warpTarget.position + offset;
 
         camera.transform.position = cameraTarget.position;
-
-
-        //yield return StartCoroutine(sf.FadeToClear());
     }
 }

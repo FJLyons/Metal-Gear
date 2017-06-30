@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Screen_Fader : MonoBehaviour
 {
-
     Animator anim;
 
     bool isFading = false;
