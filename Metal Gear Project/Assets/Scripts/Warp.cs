@@ -21,8 +21,6 @@ public class Warp : MonoBehaviour {
         if(this.gameObject.tag == "North")
         {
             offset = new Vector3(other.gameObject.transform.position.x - warpTarget.position.x, 0.0f, 0.0f);
-
-            Debug.Log("North");
         }
 
         else if (this.gameObject.tag == "South")
