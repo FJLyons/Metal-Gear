@@ -15,14 +15,30 @@ Platform assembly: C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Dat
 Loading C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.110 seconds
+- Completed reload, in  0.097 seconds
 Platform assembly: C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\bigbo\Desktop\Metal-Gear\Metal Gear Project\test_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.440402 ms
+UnloadTime: 1.786589 ms
+Item 5: 'Item 5 description' - [32] [CARD]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Item 7: 'Item 7 description' - [14] [CARD]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Item 5: 'Item 5 description' - [32] [CARD]
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2908 -> priority: 1 
-  Thread -> id: 27f0 -> priority: 1 
+  Thread -> id: 35a4 -> priority: 1 
+  Thread -> id: 1cfc -> priority: 1 
