@@ -50,7 +50,7 @@ public class Inventory_Window : MonoBehaviour {
             itemSlotCount++;
             if(itemSlotCount % slotCountLength == 0) // remainder 0
             {
-                xPos += (int)itemSlot.GetComponent<RectTransform>().rect.width * 5;
+                xPos += ((int)itemSlot.GetComponent<RectTransform>().rect.width) + (72 * 4);
                 yPos = startingPositionY;
                 itemSlotCount = 0;
             }
