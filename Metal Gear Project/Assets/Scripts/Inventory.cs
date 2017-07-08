@@ -27,4 +27,9 @@ public class Inventory : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public List<BaseItem> GetInventory()
+    {
+        return m_inventory;
+    }
 }

@@ -19,36 +19,42 @@ public class Inventory_Window : MonoBehaviour {
     private GameObject itemSlot;
     private int itemSlotCount;
 
-	// Use this for initialization
-	void Start () {
+    private List<GameObject> inventorySlots;
+    private List<BaseItem> playerInventory;
+
+    // Use this for initialization
+    void Start() {
         CreateInventorySlots();
+        AddItemsFromInventory();
+    }
+
+    // Update is called once per frame
+    void Update() {
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void CreateInventorySlots()
     {
+        inventorySlots = new List<GameObject>();
+
         xPos = startingPositionX;
         yPos = startingPositionY;
 
-        for(int i = 0; i < slotCountMax; i++)
+        for (int i = 0; i < slotCountMax; i++)
         {
             itemSlot = (GameObject)Instantiate(itemSlotPrefab);
-            itemSlot.name = "Item Slot " + i;
-
+            itemSlot.name = "Empty";
             itemSlot.GetComponent<Toggle>().group = itemSlotToggleGroup;
             itemSlot.transform.SetParent(this.gameObject.transform, false);
             itemSlot.GetComponent<RectTransform>().localPosition =
                 new Vector3(xPos, yPos, 0);
 
+            inventorySlots.Add(itemSlot);
+
             yPos -= (int)itemSlot.GetComponent<RectTransform>().rect.height + 4;
 
             itemSlotCount++;
-            if(itemSlotCount % slotCountLength == 0) // remainder 0
+            if (itemSlotCount % slotCountLength == 0) // remainder 0
             {
                 xPos += ((int)itemSlot.GetComponent<RectTransform>().rect.width) + (72 * 4);
                 yPos = startingPositionY;
@@ -56,4 +62,37 @@ public class Inventory_Window : MonoBehaviour {
             }
         }
     }
+
+    private void AddItemsFromInventory()
+    {
+        Inventory inventory = GameObject.FindGameObjectWithTag("Snake").GetComponent<Inventory>();
+        playerInventory = inventory.GetInventory();
+
+        for (int i = 0; i < playerInventory.Count; i++)
+        {
+            if (inventorySlots[i].name == "Empty")
+            {
+                Debug.Log(i);
+                inventorySlots[i].name = i.ToString();
+                inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
+                inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ReturnItemIcon(playerInventory[i]);
+
+            }
+        }
+    }
+
+    private Sprite ReturnItemIcon(BaseItem item)
+    {
+        Sprite icon = new Sprite();
+
+        Sprite[] sprites = Resources.LoadAll<Sprite>("UI/Items");
+
+        if (item.ItemType == BaseItem.ItemTypes.CARD)
+        {
+            icon = sprites[11];
+        }
+
+        return icon;
+    }
+
 }

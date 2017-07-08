@@ -10,12 +10,15 @@ public class BaseItem {
 
     private ItemTypes m_type;
 
+    public Sprite icon;
+
     public BaseItem()
     {
-        ItemName = "Item " + Random.Range(0, 11);
-        ItemDescription = ItemName + " description";
-        ItemIndex = Random.Range(0, 33);
+        ItemName = "Empty";
+        ItemDescription = "Description";
+        ItemIndex = Random.Range(0, 25);
         ItemType = ItemTypes.CARD;
+        icon = Resources.Load<Sprite>("");
     }
 
 
