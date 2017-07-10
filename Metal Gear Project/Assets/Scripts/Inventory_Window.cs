@@ -28,10 +28,10 @@ public class Inventory_Window : MonoBehaviour {
         AddItemsFromInventory();
     }
 
-    // Update is called once per frame
-    void Update() {
+    //// Update is called once per frame
+    //void Update() {
 
-    }
+    //}
 
     private void CreateInventorySlots()
     {
@@ -74,8 +74,12 @@ public class Inventory_Window : MonoBehaviour {
             {
                 Debug.Log(i);
                 inventorySlots[i].name = i.ToString();
+
                 inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
                 inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerInventory[i].icon;
+
+                inventorySlots[i].transform.GetChild(1).gameObject.SetActive(true);
+                inventorySlots[i].transform.GetChild(1).gameObject.GetComponent<Text>().text = playerInventory[i].ItemName;
             }
         }
     }
