@@ -75,24 +75,13 @@ public class Inventory_Window : MonoBehaviour {
                 Debug.Log(i);
                 inventorySlots[i].name = i.ToString();
                 inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
-                inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ReturnItemIcon(playerInventory[i]);
-
+                inventorySlots[i].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = playerInventory[i].icon;
             }
         }
     }
 
-    private Sprite ReturnItemIcon(BaseItem item)
+    public void RefreshWindow()
     {
-        Sprite icon = new Sprite();
-
-        Sprite[] sprites = Resources.LoadAll<Sprite>("UI/Items");
-
-        if (item.ItemType == BaseItem.ItemTypes.CARD)
-        {
-            icon = sprites[11];
-        }
-
-        return icon;
+        AddItemsFromInventory();
     }
-
 }

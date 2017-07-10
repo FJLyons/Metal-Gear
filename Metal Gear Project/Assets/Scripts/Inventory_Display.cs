@@ -13,6 +13,7 @@ public class Inventory_Display : MonoBehaviour {
         {
             isShowing = !isShowing;
             itemMenu.SetActive(isShowing);
+            itemMenu.GetComponent<Inventory_Window>().RefreshWindow();
         }
     }
 }
