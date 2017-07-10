@@ -12,13 +12,22 @@ public class BaseItem {
 
     public Sprite icon;
 
-    public BaseItem()
+    //public BaseItem()
+    //{
+    //    ItemName = "Empty";
+    //    ItemDescription = "Description";
+    //    ItemIndex = Random.Range(0, 25);
+    //    ItemType = ItemTypes.CARD;
+    //    icon = Resources.Load<Sprite>("");
+    //}
+
+    public BaseItem(string name, string desc, int i, ItemTypes type, Sprite spr)
     {
-        ItemName = "Empty";
-        ItemDescription = "Description";
-        ItemIndex = Random.Range(0, 25);
-        ItemType = ItemTypes.CARD;
-        icon = Resources.Load<Sprite>("");
+        ItemName = name;
+        ItemDescription = desc;
+        ItemIndex = i;
+        ItemType = type;
+        icon = spr;
     }
 
 
