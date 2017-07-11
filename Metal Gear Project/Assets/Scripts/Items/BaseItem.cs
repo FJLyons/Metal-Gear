@@ -12,14 +12,14 @@ public class BaseItem {
 
     public Sprite icon;
 
-    //public BaseItem()
-    //{
-    //    ItemName = "Empty";
-    //    ItemDescription = "Description";
-    //    ItemIndex = Random.Range(0, 25);
-    //    ItemType = ItemTypes.CARD;
-    //    icon = Resources.Load<Sprite>("");
-    //}
+    public BaseItem()
+    {
+        ItemName = "Empty";
+        ItemDescription = "No item selected.";
+        ItemIndex = -1;
+        ItemType = ItemTypes.EMPTY;
+        icon = Resources.Load<Sprite>("");
+    }
 
     public BaseItem(string name, string desc, int i, ItemTypes type, Sprite spr)
     {
@@ -33,6 +33,7 @@ public class BaseItem {
 
     public enum ItemTypes
     {
+        EMPTY,
         CONSUMABLE, // Is consumed
         WEAPON,     // Is equipped and changes weapon 
         WEARABLE,   // Is equipeped and has effect
