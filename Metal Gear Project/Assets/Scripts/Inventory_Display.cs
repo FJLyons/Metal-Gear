@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory_Display : MonoBehaviour {
 
-    public GameObject itemMenu; // Assign in inspector
+    public GameObject itemWindow; // Assign in inspector
     private bool isShowing;
 
     void Update()
@@ -12,8 +12,8 @@ public class Inventory_Display : MonoBehaviour {
         if (Input.GetKeyDown("p"))
         {
             isShowing = !isShowing;
-            itemMenu.SetActive(isShowing);
-            itemMenu.GetComponent<Inventory_Window>().RefreshWindow();
+            itemWindow.SetActive(isShowing);
+            itemWindow.GetComponent<Inventory_Window>().RefreshWindow();
         }
     }
 }

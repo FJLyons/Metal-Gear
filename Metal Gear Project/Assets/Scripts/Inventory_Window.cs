@@ -10,8 +10,7 @@ public class Inventory_Window : MonoBehaviour {
 
     public int slotCountMax;
     public int slotCountLength;
-
-    public GameObject itemSlotPrefab;
+    
     public ToggleGroup itemSlotToggleGroup;
 
     private int xPos;
@@ -19,7 +18,7 @@ public class Inventory_Window : MonoBehaviour {
     private GameObject itemSlot;
     private int itemSlotCount;
 
-    private List<GameObject> inventorySlots;
+    public List<GameObject> inventorySlots;
     private List<BaseItem> playerInventory;
 
     private int itemSelected;
@@ -30,11 +29,6 @@ public class Inventory_Window : MonoBehaviour {
         AddItemsFromInventory();
     }
 
-    //// Update is called once per frame
-    //void Update() {
-
-    //}
-
     private void CreateInventorySlots()
     {
         inventorySlots = new List<GameObject>();
@@ -44,7 +38,7 @@ public class Inventory_Window : MonoBehaviour {
 
         for (int i = 0; i < slotCountMax; i++)
         {
-            itemSlot = (GameObject)Instantiate(itemSlotPrefab);
+            itemSlot = gameObject.transform.GetChild(i + 1).gameObject;
 
             itemSlot.name = "Empty";
 
@@ -77,7 +71,6 @@ public class Inventory_Window : MonoBehaviour {
         {
             if (inventorySlots[i].name == "Empty")
             {
-                Debug.Log(i);
                 inventorySlots[i].name = playerInventory[i].ItemName;
 
                 inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
@@ -96,7 +89,7 @@ public class Inventory_Window : MonoBehaviour {
         AddItemsFromInventory();
     }
 
-    public BaseItem GetSelectedItem()
+    public int GetSelectedItemID()
     {
         int ID = -1;
 
@@ -109,14 +102,6 @@ public class Inventory_Window : MonoBehaviour {
             }
         }
 
-        if (ID != -1)
-        {
-            if (inventorySlots[ID].name != "Empty")
-            {
-                return playerInventory[ID];
-            }
-        }
-
-        return null;
+        return ID;
     }
 }
