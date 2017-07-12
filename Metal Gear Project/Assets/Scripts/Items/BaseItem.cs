@@ -64,4 +64,23 @@ public class BaseItem {
         get { return m_type; }
         set { m_type = value; }
     }
+    
+    //// CARD
+    private int m_cardLevel;
+
+    public BaseItem(string name, string desc, int i, ItemTypes type, Sprite spr, int cl)
+    {
+        ItemName = name;
+        ItemDescription = desc;
+        ItemIndex = i;
+        ItemType = type;
+        icon = spr;
+        CardLevel = cl;
+    }
+
+    public int CardLevel
+    {
+        get { return m_cardLevel; }
+        set { m_cardLevel = value; }
+    }
 }
