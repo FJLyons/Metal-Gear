@@ -17,7 +17,6 @@ public class Item_Pickup : MonoBehaviour
     {
         if (snake.gameObject.tag == "Snake")
         {
-            Debug.Log("Pick Up");
             Destroy(gameObject);
 
             Inventory inventory = snake.gameObject.GetComponent<Inventory>();

@@ -33,7 +33,6 @@ public class Item_Selected : MonoBehaviour {
     {
         if (itemWindow.GetComponent<Inventory_Window>().inventorySlots[ID].gameObject.GetComponent<Toggle>().group.AnyTogglesOn() == true)
         {
-            Debug.Log("Testing");
             gameObject.GetComponent<Item_Selected>().SetID(itemWindow.GetComponent<Inventory_Window>().GetSelectedItemID());
 
             if (ID >= 0)

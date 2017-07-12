@@ -21,12 +21,13 @@ public class Inventory_Window : MonoBehaviour {
     public List<GameObject> inventorySlots;
     private List<BaseItem> playerInventory;
 
-    private int itemSelected;
+    public bool initiated = false;
 
     // Use this for initialization
     void Start() {
         CreateInventorySlots();
         AddItemsFromInventory();
+        initiated = true;
     }
 
     private void CreateInventorySlots()
@@ -71,6 +72,8 @@ public class Inventory_Window : MonoBehaviour {
         {
             if (inventorySlots[i].name == "Empty")
             {
+                inventorySlots[i].GetComponent<Toggle>().enabled = true;
+
                 inventorySlots[i].name = playerInventory[i].ItemName;
 
                 inventorySlots[i].transform.GetChild(0).gameObject.SetActive(true);
