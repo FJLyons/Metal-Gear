@@ -38,6 +38,11 @@ public class Warp : MonoBehaviour {
             offset = new Vector3(0.0f, snake.gameObject.transform.position.y - warpTarget.position.y, 0.0f);
         }
 
+        else if (this.gameObject.tag == "Door")
+        {
+            offset = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+
         snake.gameObject.transform.position = warpTarget.position + offset;
 
         camera.transform.position = cameraTarget.position;
