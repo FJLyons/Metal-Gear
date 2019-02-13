@@ -1,0 +1,550 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Scripts - Snake/Move.gd" type="Script" id=1]
+[ext_resource path="res://Sprites - Snake/unarmed_up_0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites - Snake/unarmed_up_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites - Snake/unarmed_up_2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites - Snake/unarmed_left_0.png" type="Texture" id=5]
+[ext_resource path="res://Sprites - Snake/unarmed_left_3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites - Snake/unarmed_left_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites - Snake/unarmed_right_0.png" type="Texture" id=8]
+[ext_resource path="res://Sprites - Snake/unarmed_right_2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites - Snake/unarmed_right_1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites - Snake/unarmed_down_1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites - Snake/unarmed_down_2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites - Snake/unarmed_down_3.png" type="Texture" id=13]
+[ext_resource path="res://Scripts - Snake/Animation.gd" type="Script" id=14]
+[ext_resource path="res://Sprites - Scenes/B1-F1-S1.png" type="Texture" id=15]
+[ext_resource path="res://Scripts - Map/Change Screen.gd" type="Script" id=16]
+[ext_resource path="res://Sprites - Scenes/b1-l1-s2.png" type="Texture" id=17]
+[ext_resource path="res://Sprites - Scenes/b1-l1-s3.png" type="Texture" id=18]
+[ext_resource path="res://Sprites - Scenes/b1-l1-s6.png" type="Texture" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "unarmed_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "unarmed_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "unarmed_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "unarmed_down",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 2.77307 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.0097, 32 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 4.24514 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.75, 16 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13, 1.75 )
+
+[node name="Building 1 Floor 1" type="Node" index="0"]
+
+_sections_unfolded = [ "Material", "Pause" ]
+
+[node name="Camera" type="Camera2D" parent="." index="0" groups=[
+"Camera",
+]]
+
+position = Vector2( 512, -384 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Snake" type="KinematicBody2D" parent="." index="1" groups=[
+"Player",
+]]
+
+editor/display_folded = true
+position = Vector2( 512, -448 )
+scale = Vector2( 1, 2 )
+z_index = 1
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Snake" index="0"]
+
+scale = Vector2( 4, 2 )
+frames = SubResource( 1 )
+animation = "unarmed_down"
+script = ExtResource( 14 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Full Body" type="CollisionShape2D" parent="Snake" index="1"]
+
+position = Vector2( 0, 17.325 )
+scale = Vector2( 0.99, 0.495 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Lower Body" type="Area2D" parent="Snake" index="2"]
+
+editor/display_folded = true
+position = Vector2( -5.72205e-006, 16 )
+scale = Vector2( 3.2, 1.6 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Lower Body" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="Upper Body" type="Area2D" parent="Snake" index="3"]
+
+editor/display_folded = true
+position = Vector2( -1.04904e-005, -16 )
+scale = Vector2( 3.2, 1.6 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Upper Body" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="Left Body" type="Area2D" parent="Snake" index="4"]
+
+editor/display_folded = true
+position = Vector2( -16, -2.86102e-006 )
+scale = Vector2( 1.6, 3.2 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Left Body" index="0"]
+
+shape = SubResource( 5 )
+
+[node name="Right Body" type="Area2D" parent="Snake" index="5"]
+
+editor/display_folded = true
+position = Vector2( 18.4, -2.86102e-006 )
+scale = Vector2( 1.41538, 3.2 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake/Right Body" index="0"]
+
+shape = SubResource( 6 )
+
+[node name="B1 - F1 - S1" type="Sprite" parent="." index="2" groups=[
+"Screen",
+]]
+
+editor/display_folded = true
+position = Vector2( 512, -384 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="B1 - F1 - S1" index="0"]
+
+scale = Vector2( 4, 3 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="B1 - F1 - S1/Walls" index="0"]
+
+scale = Vector2( 0.25, 0.333333 )
+build_mode = 0
+polygon = PoolVector2Array( -32, -96, -128, -96, -128, 96, 128, 96, 128, -96, 32, -96, 32, 0, -48, 0, -48, -32, -32, -32 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="North Wall" type="Area2D" parent="B1 - F1 - S1/Walls" index="1" groups=[
+"North Wall",
+]]
+
+position = Vector2( -4.76837e-007, -26.6667 )
+scale = Vector2( 0.25, 0.0416667 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S1/Walls/North Wall" index="0"]
+
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="B1 - F1 - S2" type="Sprite" parent="." index="3" groups=[
+"Screen",
+]]
+
+editor/display_folded = true
+position = Vector2( 512, -1152 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="B1 - F1 - S2" index="0"]
+
+scale = Vector2( 4, 3 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="B1 - F1 - S2/Walls" index="0"]
+
+position = Vector2( -32, 32 )
+scale = Vector2( 0.0625, 0.0833333 )
+build_mode = 0
+polygon = PoolVector2Array( 64, -768, 0, -768, 0, 0, 384, 0, 384, -32, 64, -32 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="B1 - F1 - S2/Walls" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0, -21.3333, -24, -21.3333, -24, 18.6667, -12, 18.6667, -12, 10.6667, -8, 10.6667, -8, 18.6667, 4, 18.6667, 4, 21.3333, 8, 21.3333, 8, 0, -12, 0, -12, -10.6667, 0, -10.6667 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="B1 - F1 - S2/Walls" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( 20, -32, 20, -21.3333, 8, -21.3333, 8, -10.6667, 24, -10.6667, 24, 0, 28, 0, 28, 10.6667, 32, 10.6667, 32, -32, 20, -32 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="B1 - F1 - S2/Walls" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 8, 29.3333, 8, 32, 32, 32, 32, 29.3333, 8, 29.3333 )
+
+[node name="North Wall" type="Area2D" parent="B1 - F1 - S2/Walls" index="4" groups=[
+"North Wall",
+]]
+
+position = Vector2( -4, -30.6667 )
+scale = Vector2( 0.75, 0.0416667 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S2/Walls/North Wall" index="0"]
+
+position = Vector2( 0, -0.557516 )
+scale = Vector2( 1, 2.68355 )
+shape = SubResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="East Wall" type="Area2D" parent="B1 - F1 - S2/Walls" index="5" groups=[
+"East Wall",
+]]
+
+editor/display_folded = true
+position = Vector2( 31, 20 )
+scale = Vector2( 0.03125, 0.291667 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S2/Walls/East Wall" index="0"]
+
+position = Vector2( 0.000111818, 0 )
+scale = Vector2( 1.99512, 1 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="South Wall" type="Area2D" parent="B1 - F1 - S2/Walls" index="6" groups=[
+"Opening Wall",
+"South Wall",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 30.6667 )
+scale = Vector2( 0.25, 0.0416667 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S2/Walls/South Wall" index="0"]
+
+position = Vector2( 0, -0.000813007 )
+scale = Vector2( 1, 1.8845 )
+shape = SubResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="B1 - F1 - S3" type="Sprite" parent="." index="4" groups=[
+"Screen",
+]]
+
+editor/display_folded = true
+position = Vector2( 1536, -1152 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 18 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="B1 - F1 - S3" index="0"]
+
+scale = Vector2( 4, 3 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="B1 - F1 - S3/Walls" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, -32, -32, -32, -32, 10.6667, -20, 10.6667, -20, -21.3333, 32, -21.3333 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="B1 - F1 - S3/Walls" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, 29.3333, 24, 29.3333, 24, 21.3333, -24, 21.3333, -24, 29.3333, -32, 29.3333, -32, 32, 32, 32 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="B1 - F1 - S3/Walls" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( 0, -10.6667, -16, -10.6667, -16, 8, -4, 8, -4, 0, 0, 0 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="B1 - F1 - S3/Walls" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 24, -10.6667, 8, -10.6667, 8, 8, 20, 8, 20, 0, 24, 0 )
+
+[node name="West Wall" type="Area2D" parent="B1 - F1 - S3/Walls" index="4" groups=[
+"West Wall",
+]]
+
+position = Vector2( -31, 20 )
+scale = Vector2( 0.03125, 0.291667 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S3/Walls/West Wall" index="0"]
+
+scale = Vector2( 1.68421, 2 )
+shape = SubResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="B1 - F1 - S6" type="Sprite" parent="." index="5" groups=[
+"Screen",
+]]
+
+position = Vector2( 512, -1920 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 19 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="B1 - F1 - S6" index="0"]
+
+scale = Vector2( 4, 3 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="B1 - F1 - S6/Walls" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -20, -32, -32, -32, -32, 32, -28, 32, -28, 21.3333, -20, 21.3333 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="B1 - F1 - S6/Walls" index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( 20, -32, 20, 0, 32, 0, 32, -32, 20, -32 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="B1 - F1 - S6/Walls" index="2"]
+
+build_mode = 0
+polygon = PoolVector2Array( 32, 18.6667, 22, 18.6667, 22, 21.3333, 20, 21.3333, 20, 32, 32, 32 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="B1 - F1 - S6/Walls" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, 10.6667, -16, 10.6667, -16, 21.3333, 16, 21.3333 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="B1 - F1 - S6/Walls" index="4"]
+
+build_mode = 0
+polygon = PoolVector2Array( 16, -21.3333, -16, -21.3333, -16, -10.6667, -8, -10.6667, -8, 0, 8, 0, 8, -10.6667, 16, -10.6667, 16, -21.3333 )
+
+[node name="South Wall" type="Area2D" parent="B1 - F1 - S6/Walls" index="5" groups=[
+"South Wall",
+]]
+
+position = Vector2( -4, 30.6667 )
+scale = Vector2( 0.75, 0.0416669 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="B1 - F1 - S6/Walls/South Wall" index="0"]
+
+position = Vector2( 9.53674e-007, 0.000221848 )
+scale = Vector2( 2.46154, 4.57139 )
+shape = SubResource( 12 )
+
+[connection signal="body_entered" from="B1 - F1 - S1/Walls/North Wall" to="Snake" method="_on_North_Wall_body_entered"]
+
+[connection signal="body_entered" from="B1 - F1 - S2/Walls/North Wall" to="Snake" method="_on_North_Wall_body_entered"]
+
+[connection signal="body_entered" from="B1 - F1 - S2/Walls/East Wall" to="Snake" method="_on_North_Wall_body_entered"]
+
+
