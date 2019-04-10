@@ -2,18 +2,22 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/unarmed_left_3.png-680b0ee1aa38c66877cc43723efd7336.stex"
+path="res://.import/door.png-b6fc190b877f54412ebc9001e18a5e3f.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Sprites - Snake/unarmed_left_3.png"
-dest_files=[ "res://.import/unarmed_left_3.png-680b0ee1aa38c66877cc43723efd7336.stex" ]
+source_file="res://Sprites - Environment/door.png"
+dest_files=[ "res://.import/door.png-b6fc190b877f54412ebc9001e18a5e3f.stex" ]
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
@@ -23,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

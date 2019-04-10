@@ -50,3 +50,4 @@ func _move_right(delta):
 	var pos = Vector2(0, 0)
 	pos.x = moveSpeed * delta
 	move_and_collide(pos)
+
